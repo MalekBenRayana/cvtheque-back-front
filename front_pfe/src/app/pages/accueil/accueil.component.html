@@ -1,0 +1,17 @@
+<div class="container-fluid page">
+    
+    <div class="d-flex page__box p-3 mt-2">Accueil</div>
+        
+    <div class="page__content shadow p-3 position-relative">
+    
+      <mat-form-field>
+        <input  matInput [matDatepicker]="datepicker" placeholder="Consulter la date">
+        <mat-datepicker-toggle matSuffix [for]="datepicker" ></mat-datepicker-toggle>
+        <mat-datepicker #datepicker></mat-datepicker>
+      </mat-form-field>
+     
+  
+  </div>
+</div>
+  
+  <router-outlet></router-outlet>

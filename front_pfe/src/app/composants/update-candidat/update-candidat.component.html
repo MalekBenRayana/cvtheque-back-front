@@ -1,0 +1,106 @@
+
+    
+      <form [formGroup]="CandidatUpdate">
+      
+        <h2>Mise à jour détails</h2>  
+          <tr>
+          
+        <td>
+          <mat-form-field appearance="outline">
+              <mat-label>Nom et Prénom</mat-label>
+              <input formControlName="nom" matInput placeholder="Nom et Prénom">
+          </mat-form-field>
+        </td>
+        </tr>
+        <tr>
+            <td>
+          <mat-form-field appearance="outline">
+              <mat-label>Age</mat-label>
+              <input formControlName="age"  matInput type="number" placeholder="Age">
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field appearance="outline">
+              <mat-label>Situation Familiale</mat-label>
+              <mat-select  formControlName="sf"  placeholder="Situation Familiale">
+                  <mat-option value="Célibataire">Célibataire</mat-option>
+                  <mat-option value="Marié">Marié</mat-option>
+                  <mat-option value="Divorcé">Divorcé</mat-option>
+                  <mat-option value="Autre">Autre</mat-option>
+              </mat-select>
+          </mat-form-field>
+        </td>
+        </tr>
+        
+        <tr>
+        <td>
+          <mat-form-field appearance="outline">
+              <mat-label>Formation</mat-label>
+              <input formControlName="formation" matInput placeholder="Formation">
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field appearance="outline">
+              <mat-label>Profil Candidat</mat-label>
+              <input formControlName="profil" matInput placeholder="Profil Candidat">
+          </mat-form-field>
+        </td>
+        </tr>
+    
+        <tr>
+        <td>
+          <mat-form-field appearance="outline">
+              <mat-label>Total experience</mat-label>
+              <input formControlName="total" matInput type="number" placeholder="Total d'experience">
+          </mat-form-field>
+        </td>
+        <td>
+        
+          <mat-form-field appearance="outline">
+              <mat-label>Adresse</mat-label>
+              <input formControlName="adresse" matInput placeholder="Adresse">
+          </mat-form-field>
+        </td>
+        </tr>
+        
+        <tr>
+            <td>
+          <mat-form-field appearance="outline">
+              <mat-label>Demande de recrutement</mat-label>
+              <input formControlName="demande" matInput placeholder="Demande">
+          </mat-form-field>
+        </td>
+        <td>
+        
+          <mat-form-field appearance="outline">
+              <mat-label>Source de candidature</mat-label>
+              <input formControlName="source" matInput placeholder="Source de candidature">
+          </mat-form-field>
+        </td>
+        </tr>
+        
+        <tr>
+            <td>
+          <mat-form-field appearance="outline">
+              <mat-label>Nature de candidature</mat-label>
+              <mat-select formControlName="nature" placeholder="Nature de candidature">
+                  <mat-option value="Spontannée">Spontannée</mat-option>
+                  <mat-option value="Rattachée à une demande">Rattachée à une demende</mat-option>      
+              </mat-select>
+          </mat-form-field>
+        </td>
+         <td>
+             <mat-label for=""><h3> CV</h3></mat-label>
+            <input formControlName="cv" type="file" class="file-upload" onchange="console.log(event.target.files)">
+        </td>    
+        </tr>
+                  <div mat-dialog-actions [align]="'end'">
+                    <button mat-raised-button color="warn" mat-dialog-close> Fermer </button>
+                    <button mat-raised-button color="primary"  (click)="editCandidat()" > Modifier candidat </button>
+                </div>
+                  
+        
+        </form>
+  
+            
+            

@@ -1,0 +1,79 @@
+    
+<div class="container-fluid page">
+  
+    <div class="d-flex page__box p-3 mt-2">Interface Suivi entretien</div>
+    <div class="page__content shadow p-3 position-relative">
+      <button mat-raised-button color="warn" (click)="openDialog()">Ajouter Fiche d'entretien</button>
+  
+               
+    
+      
+      <div class="container">
+        <div style="margin-top: 10px">
+          <mat-form-field appearance="standard">
+            <mat-label>Recherche par mot clé</mat-label>
+            <input matInput [(ngModel)]="term">
+
+          </mat-form-field>
+          
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Identifiant fiche</th>
+                <th scope="col">Nom et prénom</th>
+                <th scope="col">Nombre d'entretiens</th>
+                <th scope="col">Date d'entretien</th>
+                <th scope="col">Type d'entretien</th>
+                <th scope="col">Intervenant RBG</th>
+                <th scope="col">Statut entretien</th>
+                <th scope="col">CV</th>
+                <th scope="col">Action</th>
+        
+              </tr>
+            </thead>
+            <tbody> 
+              
+                
+              <tr *ngFor="let fiche of FicheList |filter:term ">
+                <td>{{fiche.idfiche}}</td>
+                <td>{{fiche.nometprenom}}</td>
+                <td>{{fiche.nbentretien}}</td>
+                <td>{{fiche.dateentretien}}</td>
+                <td>{{fiche.typeentretien}}</td>
+                <td>{{fiche.intervenantRBG}}</td>
+                <td>{{fiche.statutent}}</td>
+                <td>{{fiche.cv}}</td>
+                
+                <td><span  (click)="download(fiche.cv)"><mat-icon>picture_as_pdf</mat-icon>{{getFileName(fiche.cv?.name)}}</span></td>
+
+
+              
+                <td>
+                  <button (click)="openDialogUpdatefiche(fiche.idfiche)"  mat-icon-button color="primary"><mat-icon>edit</mat-icon></button>
+                  <button (click)="deleteFiche(fiche.idfiche)"  mat-icon-button color="warn"><mat-icon>delete</mat-icon></button>
+                </td>
+
+            </tr>
+
+
+          </tbody>
+        </table>  
+     
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            
+        
+    
+    
+        
+    
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator >
+</div>
+</div>     
+       
+
+  </div>
+</div>
+    
+  

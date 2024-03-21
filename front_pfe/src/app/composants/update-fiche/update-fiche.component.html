@@ -1,0 +1,81 @@
+
+
+        <form [formGroup]="FicheUpdate" >
+            <h2>Formulaire de modification </h2>  
+            
+            <tr>
+                <td>
+                  <mat-form-field appearance="outline">
+                      <mat-label>Nom et Prénom</mat-label>
+                      <input formControlName="Nometprenom" matInput placeholder="Nom et Prénom">
+                  </mat-form-field>
+                </td>
+            </tr>
+        
+            <tr>
+                <td>
+                
+                    <mat-form-field appearance="outline">
+                        <mat-label>Nombre d'entretiens</mat-label>
+                        <input formControlName="Nbentretien"  matInput type="number" placeholder="Nbentretien">
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Date d'entretien</mat-label>
+                        <input formControlName="Dateentretien"  matInput type="date" placeholder="Dateentretien">
+                    </mat-form-field>
+                </td>
+            </tr>
+        
+            <tr>
+                <td>
+                
+                    <mat-form-field appearance="outline">
+                        <mat-label>Type d'entretien</mat-label>
+                        <mat-select  formControlName="Typeentretien"  placeholder="Typeentretien">
+                            <mat-option value="Présentiel">Présentiel</mat-option>
+                            <mat-option value="En ligne">En ligne</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Intervenant RBG</mat-label>
+                        <mat-select multiple  formControlName="IntervenantRBG"  placeholder="IntervenantRBG">
+                            <mat-option value="Haifa Meddeb">Haifa Meddeb</mat-option>
+                            <mat-option value="Afef Souissi">Afef Souissi</mat-option>
+                            <mat-option value="Khouloud Triaa">Khouloud Triaa</mat-option>
+                            <mat-option value="Jihen Maraoui">Jihen Maraoui</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </td>
+            </tr>
+        
+            <tr>
+                <td>
+                
+                    <mat-form-field appearance="outline">
+                        <mat-label>Statut d"rntretien</mat-label>
+                        <mat-select  formControlName="Statutent"  placeholder="Statutent">
+                            <mat-option value="En cours">En cours</mat-option>
+                            <mat-option value="Retenu">Retenu</mat-option>
+                            <mat-option value="Non retenu">Non retenu</mat-option>
+                            <mat-option value="Besoin d'un autre entretien">Besoin d'un autre entretien</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </td>
+                <td>
+                    
+                        <mat-label for=""><h3> CV</h3></mat-label>
+                        <input formControlName="CV" type="file" class="file-upload" onchange="console.log(event.target.files)">
+                </td>
+            </tr>
+        
+            <div mat-dialog-actions [align]="'end'">
+                <button mat-raised-button color="warn" mat-dialog-close> Fermer </button>
+                <button mat-raised-button color="primary"  (click)="editFiche()"> Modifier fiche </button>
+              </div>
+        </form>
+
+

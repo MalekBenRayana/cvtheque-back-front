@@ -1,0 +1,72 @@
+    
+<div class="container-fluid page">
+  
+    <div class="d-flex page__box p-3 mt-2">Gestion des besoins</div>
+    <div class="page__content shadow p-3 position-relative">
+      <button mat-raised-button color="warn" (click)="openDialog()">Ajouter besoin en recrutement</button>
+  
+               
+    
+      
+      <div class="container">
+        <div style="margin-top: 10px">
+          <mat-form-field appearance="standard">
+            <mat-label>Recherche par mot clé</mat-label>
+            <input matInput [(ngModel)]="term">
+          </mat-form-field>
+          
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Id Besoin</th>
+                <th scope="col">Filiale</th>
+                <th scope="col">Date</th>
+                <th scope="col">Poste proposé</th>
+                <th scope="col">Description du poste</th>
+                <th scope="col">Service concerné</th>
+                <th scope="col">Motif de recrutement</th>
+                <th scope="col">Date d'embauche prévu</th>
+                <th scope="col">Statut de besoin</th>
+                <th scope="col">Besoin</th>
+                <th scope="col">Action</th>
+        
+              </tr>
+            </thead>
+            <tbody> 
+              
+                
+                <tr *ngFor="let besoin of BesoinList |filter:term">
+                    <td>{{besoin.idBesoin}}</td>
+                    <td>{{besoin.filBesoin}}</td>
+                    <td>{{besoin.date}}</td>
+                    <td>{{besoin.posteBesoin}}</td>
+                    <td>{{besoin.descPoste}}</td>
+                    <td>{{besoin.service}}</td>
+                    <td>{{besoin.motifBesoin}}</td>
+                    <td>{{besoin.dateEmb}}</td>
+                    <td>{{besoin.statBesoin}}</td>
+                    <td ><span (click)="download(besoin.besoin)"><mat-icon>picture_as_pdf</mat-icon>{{getFileName(besoin.besoin?.name)}}</span></td>
+
+
+                    <td>
+                      <button (click)="openDialogUpdateBes(besoin.idBesoin)"  mat-icon-button color="primary"><mat-icon>edit</mat-icon></button>
+                      <button (click)="deleteBesoin(besoin.idBesoin) " mat-icon-button color="warn"><mat-icon>delete</mat-icon></button>
+                    </td>
+  
+  
+               
+              
+            </tbody>
+          </table>  
+        
+        
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        
+    
+
+    
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator>    
+</div>
+</div>

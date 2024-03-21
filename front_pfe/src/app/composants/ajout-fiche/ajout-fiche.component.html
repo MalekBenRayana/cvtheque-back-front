@@ -1,0 +1,77 @@
+<form [formGroup]="FicheDetail" >
+    <h2>Formulaire d'ajout fiche d'entretien</h2>  
+    
+    <tr>
+        
+        <td>
+          <mat-form-field appearance="outline">
+              <mat-label>Nom et Prénom</mat-label>
+              <input formControlName="nometprenom" matInput placeholder="Nom et Prénom">
+          </mat-form-field>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+        
+            <mat-form-field appearance="outline">
+                <mat-label>Nombre d'entretiens</mat-label>
+                <input formControlName="nbentretien"  matInput type="number" placeholder="nbr d'entretiens">
+            </mat-form-field>
+        </td>
+        <td>
+            <mat-form-field appearance="outline">
+                <mat-label>Date d'entretien</mat-label>
+                <input formControlName="dateentretien"  matInput type="date" placeholder="Dateentretien">
+            </mat-form-field>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+        
+            <mat-form-field appearance="outline">
+                <mat-label>Type d'entretien</mat-label>
+                <mat-select  formControlName="typeentretien"  placeholder="Typeentretien">
+                    <mat-option value="Présentiel">Présentiel</mat-option>
+                    <mat-option value="En ligne">En ligne</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </td>
+        <td>
+            <mat-form-field appearance="outline">
+                <mat-label>Intervenant RBG</mat-label>
+                <mat-select multiple  formControlName="intervenantRBG"  placeholder="IntervenantRBG">
+                    <mat-option *ngFor="let o of interviewers" [value]="o" >{{o.firstName}} {{o.lastName}}</mat-option>
+                    
+                </mat-select>
+            </mat-form-field>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+        
+            <mat-form-field appearance="outline">
+                <mat-label>Statut d"rntretien</mat-label>
+                <mat-select  formControlName="statutent"  placeholder="Statutent">
+                    <mat-option value="En cours">En cours</mat-option>
+                    <mat-option value="Retenu">Retenu</mat-option>
+                    <mat-option value="Non retenu">Non retenu</mat-option>
+                    <mat-option value="Besoin d'un autre entretien">Besoin d'un autre entretien</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </td>
+        <td>
+            <mat-label for=""><h3> CV</h3></mat-label>
+          <input formControlName="cv" type="file" class="file-upload"  (change)="handleFileInput($event)">
+       </td>       
+      </tr>
+
+   
+            <div mat-dialog-actions [align]="'end'">
+              <button mat-raised-button color="warn" mat-dialog-close> Fermer </button>
+              <button mat-raised-button color="primary"  (click)="addFiche()"> Ajouter fiche d'entretien </button>
+            </div>
+</form>
+       

@@ -1,0 +1,118 @@
+<form [formGroup]="DemandeDetail">
+    
+  <h2>Formulaire d'ajout demande</h2>  
+  <tr>
+      
+        <td>
+            <mat-form-field appearance="outline">
+                <mat-label>Filiale</mat-label>
+                <mat-select  formControlName="filiale"  placeholder="Filiale">
+                    <mat-option value="Warda">Warda</mat-option>
+                    <mat-option value="Diari">Diari</mat-option>
+                    <mat-option value="Spiga">Spiga</mat-option>
+                    <mat-option value="Friga">Friga</mat-option>
+                </mat-select>
+            </mat-form-field>
+      </td>
+  </tr>
+<tr>
+<td>
+    <mat-form-field appearance="outline">
+      <mat-label>Date</mat-label>
+      <input formControlName="date"  matInput type="date" placeholder="Date">
+  </mat-form-field>
+</td>
+    
+    <td>
+      <mat-form-field appearance="outline">
+        <mat-label>Poste</mat-label>
+        <mat-select  formControlName="poste"  placeholder="Poste">
+            <mat-option value="Responsable maintenance">Responsable Maintenance</mat-option>
+            <mat-option value="Responsable qualité">Responsable qualité</mat-option>
+            <mat-option value="Ingénieur en électromécanique">Ingénieur en électromécanique</mat-option>
+            
+        </mat-select>
+    </mat-form-field>
+    </td>
+  </tr>
+
+
+  <tr>
+    <td>
+      
+        <mat-form-field appearance="outline">
+          <mat-label>Description du poste</mat-label>
+          <input formControlName="description" matInput type="string" placeholder="Description du poste">
+      </mat-form-field>
+    
+    </td>
+        
+        <td>
+          <mat-form-field appearance="outline">
+            <mat-label>Service concerné</mat-label>
+            <mat-select  formControlName="service" placeholder="service concerné">
+                <mat-option value="Departement RH">Departement RH</mat-option>
+                <mat-option value="Departement Informatique">Departement Informatique</mat-option>
+                <mat-option value="Departement qualité">Departement qualité</mat-option>
+                
+            </mat-select>
+        </mat-form-field>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          
+          <mat-form-field appearance="outline">
+            <mat-label>Motif du recrutement</mat-label>
+            <mat-select  formControlName="motif"  placeholder="Motif du recrutement">
+                <mat-option value="Contratuel">Contratuel</mat-option>
+                <mat-option value="Permenant">Permenant</mat-option>
+                <mat-option value="Saisonnier">Saisonnier</mat-option>
+                
+            </mat-select>
+        </mat-form-field>
+        
+        </td>
+            
+            <td>
+              <mat-form-field appearance="outline">
+                
+                  <mat-label>Date d'embauche</mat-label>
+                  <input formControlName="dateEmb"  matInput type="date" placeholder="Date d'embauche ">
+              </mat-form-field>
+            
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <mat-form-field appearance="outline">
+                <mat-label>Statut de demande</mat-label>
+                <mat-select  formControlName="statut"  placeholder="Statut de besoin">
+                    <mat-option value="oui">oui</mat-option>
+                    <mat-option value="non">non</mat-option>
+                    
+                </mat-select>
+            </mat-form-field>
+            </td>
+            <td>
+              <mat-label for=""><h3> Demande</h3></mat-label>
+            <input formControlName="demande" type="file" class="file-upload"  (change)="handleFileInput($event)">
+         </td>       
+        </tr>
+
+     
+              <div mat-dialog-actions [align]="'end'">
+                <button mat-raised-button color="warn" mat-dialog-close> Fermer </button>
+                <button mat-raised-button color="primary"  (click)="addDemande()"> Ajouter demande </button>
+              </div>
+              
+    
+</form>
+
+
+    
+
+
+

@@ -1,0 +1,96 @@
+
+               <form [formGroup]="BesoinUpdate" >
+                   <h2>Formulaire de mise à jour du besoin </h2>  
+                   <tr>
+                       
+                     <td>
+                       <mat-form-field appearance="outline">
+                           <mat-label>Date</mat-label>
+                           <input formControlName="date"  matInput type="date" placeholder="Date">
+                       </mat-form-field>
+                     </td>
+                     </tr>
+                     <tr>
+                         <td>
+                           <mat-form-field appearance="outline">
+                               <mat-label>Poste Prposé</mat-label>
+                               <mat-select  formControlName="posteBesoin"  placeholder="PosteBesoin">
+                                   <mat-option value="1">Ingénieur en mécanisue</mat-option>
+                                   <mat-option value="2">Responsable RH</mat-option>
+                                   
+                               </mat-select>
+                           </mat-form-field>
+                     </td>
+                     <td>
+                       <mat-form-field appearance="outline">
+                           <mat-label>Description du poste</mat-label>
+                           <input formControlName="descPoste" matInput placeholder="Description">
+                       </mat-form-field>
+                     </td>
+                     </tr>
+                     
+                     <tr>
+                     <td>
+                       <mat-form-field appearance="outline">
+                           <mat-label>Service concerné</mat-label>
+                           <mat-select  formControlName="service"  placeholder="Service">
+                               <mat-option value="1">Informatique</mat-option>
+                               <mat-option value="2">RH</mat-option>
+                               <mat-option value="2">Production</mat-option>
+               
+                               
+                           </mat-select>
+                       </mat-form-field>
+                     </td>
+                     <td>
+                       <mat-form-field appearance="outline">
+                           <mat-label>Motif du recrutement</mat-label>
+                           <mat-select  formControlName="motifBesoin"  placeholder="Motif du recrutement">
+                               <mat-option value="Contratuel">Contratuel</mat-option>
+                               <mat-option value="Permenant">Permenant</mat-option>
+                               <mat-option value="Saisonnier">Saisonnier</mat-option>
+                               
+                           </mat-select>
+                       </mat-form-field>
+                     </td>
+                     </tr>
+                 
+                     <tr>
+                     <td>
+                       <mat-form-field appearance="outline">
+                               
+                           <mat-label>Date d'embauche</mat-label>
+                           <input formControlName="dateEmb"  matInput type="date" placeholder="Date">
+                       </mat-form-field>
+                     </td>
+                     <td>
+                     
+                       <mat-form-field appearance="outline">
+                           <mat-label>Statut de besoin</mat-label>
+                           <mat-select  formControlName="statut"  placeholder="Statut de besoin">
+                               <mat-option value="oui">confirmé</mat-option>
+                               <mat-option value="non">non confirmé</mat-option>
+                               <mat-option value="non">en cours d'étude</mat-option>
+               
+                               
+                           </mat-select>
+                       </mat-form-field>
+                     </td>
+                     </tr>
+                     
+                     
+                      <td>
+                          <mat-label for=""><h3> Besoin</h3></mat-label>
+                         <input formControlName="besoin" type="file" class="file-upload" onchange="console.log(event.target.files)">
+                     </td>    
+                               <div mat-dialog-actions [align]="'end'">
+                                 <button mat-raised-button color="warn" mat-dialog-close> Fermer </button>
+                                 <button mat-raised-button color="primary" (click)="editBesoin()" > Modifier besoin </button>
+                             </div>
+                               
+                     
+                     </form>
+                 
+               
+              
+           

@@ -1,0 +1,81 @@
+<div class="container-fluid page">
+    
+    <div class="d-flex page__box p-3 mt-2">Gestion des candidats</div>
+        
+    <div class="page__content shadow p-3 position-relative">
+    
+      
+
+      <button mat-raised-button color="warn" (click)="openDialog()" >Ajouter Candidat</button>
+
+               
+      <div class="container">
+        <div style="margin-top: 10px">
+
+          
+
+          <mat-form-field appearance="standard">
+            <mat-label>Recherche par mot clé</mat-label>
+            <input matInput [(ngModel)]="term">
+          </mat-form-field>
+          
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Identifiant</th>
+                 <th scope="col">Nom et prénom</th>
+                 <th scope="col">Age</th>
+                <th scope="col">Situation familiale</th>
+                <th scope="col">Formation</th>
+                <th scope="col">Profil Candidat</th>
+                <th scope="col">Total experience</th>
+                <th scope="col">Adresse</th>
+                <th scope="col">Demande de recrutement</th>
+                <th scope="col">Source de candidature</th>
+                <th scope="col">Nature de candidature</th>
+                <th scope="col">CV</th>
+                <th scope="col">Action</th> 
+        
+              </tr>
+            </thead>
+            <tbody> 
+            
+              
+            
+
+              <tr *ngFor="let candidat of CandidatList |filter:term ">
+                <td>{{candidat.identifiant}}</td>
+                <td>{{candidat.nom}}</td>
+                <td>{{candidat.age}}</td>
+                <td>{{candidat.sf}}</td>
+                <td>{{candidat.formation}}</td>
+                <td>{{candidat.profil}}</td>
+                <td>{{candidat.total}}</td>
+                <td>{{candidat.adresse}}</td>
+                <td>{{candidat.demande}}</td>
+                <td>{{candidat.source}}</td>
+                <td>{{candidat.nature}}</td>
+                <td ><span  (click)="download(candidat.cv)"><mat-icon>picture_as_pdf</mat-icon>{{getFileName(candidat.cv?.name)}}</span></td>
+
+
+
+                <td>
+                  <button (click)="openDialogUpdate(candidat.identifiant)"  mat-icon-button color="primary"><mat-icon>edit</mat-icon></button>
+                  <button (click)="deleteCandidat(candidat.identifiant) " mat-icon-button color="warn"><mat-icon>delete</mat-icon></button>
+                </td>
+                
+            </tr>
+
+          </tbody>
+            </table>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              
+          
+  
+          
+      
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator>    
+  </div>
+  </div>
+  

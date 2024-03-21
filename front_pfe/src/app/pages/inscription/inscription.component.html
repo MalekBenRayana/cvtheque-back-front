@@ -1,0 +1,41 @@
+<div class="container my-container">
+    
+    <div class="card justify-content-md-center">
+        <div class="card-header text-center">
+            <h3>Inscription</h3>
+        </div>
+        <div class="card-body">
+            <div class="mb-3">
+                <input type="text" class="form-control" placeholder="Nom">
+            </div>
+            <div class="mb-3">
+                <input type="email" class="form-control" placeholder="Email">
+            </div>
+
+            <div class="mb-3">
+            <select class="custom-select">
+                <option value="1">Administrateur</option>
+                <option value="2">Responsable RH</option>
+            </select>
+            </div>
+
+            <div class="mb-3">
+                <input type="password" class="form-control" placeholder="Mot de passe">
+            </div>
+            <div class="mb-3">
+                <input type="password" class="form-control" placeholder="Confirmer mot de passe">
+            </div>
+            
+
+            
+            <div class="mb-3 d-flex justify-content-between">
+                <a [routerLink]="['/login']" class="btn btn-link">Se connecter</a>
+
+                
+                <button type="button" class="btn btn-primary"> S'inscrire </button>
+                
+                
+            </div>
+        </div>
+    </div>
+</div>

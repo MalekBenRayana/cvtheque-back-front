@@ -1,0 +1,74 @@
+<div class="container-fluid page">
+    
+    <div class="d-flex page__box p-3 mt-2">Gestion des demandes de recrutement</div>
+        
+    <div class="page__content shadow p-3 position-relative">
+    
+      
+
+      <button mat-raised-button color="warn" (click)="openDialog()" >Ajouter Demande</button>
+      <div class="container">
+        <div style="margin-top: 10px">
+            <mat-form-field appearance="standard">
+                <mat-label>Recherche par mot clé</mat-label>
+                <input matInput [(ngModel)]="term">
+
+              </mat-form-field>
+          
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Identifiant</th>
+                <th scope="col">Filiale</th>
+                <th scope="col">Date</th>
+                <th scope="col">Poste proposé</th>
+                <th scope="col">Description du poste</th>
+                <th scope="col">Service concerné</th>
+                <th scope="col">Motif de recrutement</th>
+                <th scope="col">Date d'embauche prévu</th>
+                <th scope="col">Statut de demande</th>
+                <th scope="col">DemandeFile</th>
+                <th scope="col">Action</th>
+        
+              </tr>
+            </thead>
+            <tbody> 
+            
+                <tr *ngFor="let demande of DemandeList |filter:term ">
+                  <td>{{demande.id}}</td>
+                  <td>{{demande.filiale}}</td>
+                  <td>{{demande.date}}</td>
+                  <td>{{demande.poste}}</td>
+                  <td>{{demande.description}}</td>
+                  <td>{{demande.service}}</td>
+                  <td>{{demande.motif}}</td>
+                  <td>{{demande.dateEmb}}</td>
+                  <td>{{demande.statut}}</td>
+                  <td ><span  (click)="download(demande.demande)"><mat-icon>picture_as_pdf</mat-icon>{{getFileName(demande.demande?.name)}}</span></td>
+                  <td>
+                    <button (click)="openDialogUpdateDem(demande.id)"  mat-icon-button color="primary"><mat-icon>edit</mat-icon></button>
+                    <button (click)="deleteDemande(demande.id)"  mat-icon-button color="warn"><mat-icon>delete</mat-icon></button>
+                  </td>
+  
+              </tr>
+  
+  
+            </tbody>
+          </table>  
+       
+  
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              
+          
+      
+      
+          
+      
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator >
+  </div>
+  </div>     
+         
+
+    </div>
+</div>
